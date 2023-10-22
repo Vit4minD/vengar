@@ -1,7 +1,10 @@
-import Image from 'next/image'
+import SignIn from "./components/auth/SignIn"
+import Firebase from '../firebase/config'
+
+const firebase = Firebase
 
 export default function Home() {
   return (
-    <h1>LOCK IN</h1>
+    <SignIn/>
   )
 }

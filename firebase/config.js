@@ -5,6 +5,7 @@ import 'firebase/firestore'
 import 'firebase/storage'
 import 'firebase/analytics'
 import 'firebase/performance'
+import { getAuth } from 'firebase/auth';
 
 
 const firebaseConfig = {
@@ -17,12 +18,6 @@ const firebaseConfig = {
     measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
 };
 
-// Initialize Firebase
-
-
-export default function() {
-    if(getApps().length === 0){ 
-        initializeApp(firebaseConfig)
-        console.log('firebase configurated')
-    }
-};
+const Firebase = initializeApp(firebaseConfig)
+export const Auth = getAuth(Firebase);
+export default Firebase;
