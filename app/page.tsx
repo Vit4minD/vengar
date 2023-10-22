@@ -1,10 +1,7 @@
-import firebase from '../firebase/config'
-
-firebase() // config
+import Image from 'next/image'
 
 export default function Home() {
   return (
-    <h1> Oo Oo Ah Ah </h1>
+    <h1>LOCK IN</h1>
   )
 }
-    
