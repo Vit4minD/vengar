@@ -1,13 +1,13 @@
 import logo from './logo.png'
-import background from './background.jpg'
+import Head from 'next/head'
 
 const Casa = () =>{
     return(
         <html>
-            <head>
+            <Head>
                 <title>Vengar</title>
-                <link rel = "stylesheet" href = "style.css"></link>
-            </head>
+                <link rel = "stylesheet" href = "/style.css"></link>
+            </Head>
             <body>
                 <div className="banner">
                     <div className="navbar">
