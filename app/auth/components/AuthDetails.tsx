@@ -29,7 +29,7 @@ const AuthDetails = () => {
   return (
     <div className=" text-7xl text-center text-slate-50">
         {
-            authUser ? <div> Signed in as {authUser.email.substring(0,authUser.email.indexOf("@"))}!<div><button onClick={handleSignOut} className="bg-green-600">Sign Out</button></div> </div> : <div> Not Signed In </div>
+            authUser ? <div> Signed In!!<div><button onClick={handleSignOut} className="bg-green-600">Sign Out</button></div> </div> : <div> Not Signed In </div>
         }
     </div>
   )

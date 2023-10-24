@@ -1,6 +1,6 @@
 'use client'
 import React, {useState} from 'react'
-import Firebase, {Auth} from '../../firebase/config'
+import Firebase, {Auth} from '../../../firebase/config'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 
 const SignUp = () => {

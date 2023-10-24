@@ -1,11 +1,13 @@
-import SignIn from "../casa/SignIn";
-import SignUp from "../casa/SignUp";
+import SignIn from "./components/SignIn";
+import SignUp from "./components/SignUp";
+import AuthDetails from "./components/AuthDetails";
 
 export default function Home() {
   return (
     <>
-      <SignIn />
-      <SignUp />
+      <SignIn/>
+      <SignUp/>
+      <AuthDetails/>
     </>
   )
 }
