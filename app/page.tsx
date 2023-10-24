@@ -1,6 +1,6 @@
 
 import Firebase from '../firebase/config'
-import Casa from './components/casa/Casa'
+import Casa from './casa/Casa'
 
 const firebase = Firebase
 
