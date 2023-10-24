@@ -4,7 +4,7 @@ const Casa = () =>{
             <div className="navbar">
                 <img src = "logo.png" className="logo"></img>
                 <ul>
-                    <li><a href="#">Home</a></li>
+                    <li><a href="auth">Sign In</a></li>
                     <li><a href="#">Home</a></li>
                 </ul>
             </div>
