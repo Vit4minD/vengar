@@ -1,4 +1,4 @@
-import logo from './logo.png'
+import logo from './components/logo.png'
 import Head from 'next/head'
 
 const Casa = () =>{
