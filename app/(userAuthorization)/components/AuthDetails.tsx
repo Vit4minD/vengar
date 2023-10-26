@@ -29,7 +29,7 @@ const AuthDetails = () => {
       };
   return (
     <div>
-      <div className=" text-7xl text-center text-slate-700">
+      <div>
           {
               authUser ? <div> Signed In!!<div><button onClick={handleSignOut} className="bg-green-600">Sign Out</button></div> </div> : <div> Not Signed In </div>
           }

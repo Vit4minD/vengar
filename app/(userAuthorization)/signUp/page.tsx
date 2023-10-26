@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 import Firebase, {auth} from '../../../firebase/config'
 import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth';
-import { collection, setDoc, doc, getDoc } from 'firebase/firestore';
+import { collection, setDoc, doc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import AuthDetails from '../components/AuthDetails';
 
@@ -31,14 +31,14 @@ const SignUp = () => {
         })      
     }
   return (
-    <div className='sign-in-container self-center'>
-        <form className=" text-zinc-50" onSubmit={onSubmit}>
-            <h1 className="text-5xl text-blue-500 bg-gray-200">Create Account</h1>
-            <input className='text-slate-950' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            <input className='text-slate-950' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-            <button className='bg-green-600' type='submit'>Sign Up</button>
+    <div>
+        <form onSubmit={onSubmit}>
+            <h1>Create Account</h1>
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <button type='submit'>Sign Up</button>
         </form>
-        <div>Already have an account? <a className=' text-blue-500 underline' href='login'>Log In</a></div>
+        <div>Already have an account? <a href='login'>Log In</a></div>
     </div>
   )
 }
