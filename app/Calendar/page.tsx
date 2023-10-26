@@ -1,18 +1,11 @@
-import Firebase from '../firebase/config'
-import Casa from './casa/Casa'
+import Firebase from '@/firebase/config'
+import Casa from '../casa/Casa'
 
 const firebase = Firebase
 
 export default function Home() {
   return (
-    <>
-      <Casa />
-    </>
-  )
-}
-
-
-<html lang="en">
+    <html lang="en">
 <head>
     <meta charSet="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -60,3 +53,7 @@ export default function Home() {
     
 </body>
 </html>
+  )
+}
+
+

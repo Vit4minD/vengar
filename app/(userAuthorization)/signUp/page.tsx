@@ -5,6 +5,7 @@ import {createUserWithEmailAndPassword} from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
+import AuthDetails from '../components/AuthDetails';
 
 const myCollection = collection(db, 'users');
 
@@ -37,8 +38,17 @@ const SignUp = () => {
             <input className='text-slate-950' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
             <button className='bg-green-600' type='submit'>Sign Up</button>
         </form>
+        <div>Already have an account? <a className=' text-blue-500 underline' href='login'>Log In</a></div>
     </div>
   )
 }
 
-export default SignUp
+export default function Home() {
+  return (
+    <>
+      <SignUp/>
+      <AuthDetails/>
+    </>
+    
+  )
+}

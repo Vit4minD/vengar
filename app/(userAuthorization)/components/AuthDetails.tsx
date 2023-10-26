@@ -35,7 +35,6 @@ const AuthDetails = () => {
           }
       </div>
       <div> 
-        
       </div>
     </div>
   )
