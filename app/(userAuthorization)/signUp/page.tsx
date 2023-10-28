@@ -1,15 +1,18 @@
 'use client'
 import React, {useState} from 'react'
 import Firebase, {auth} from '../../../firebase/config'
-import {createUserWithEmailAndPassword} from 'firebase/auth'
+import {GoogleAuthProvider, createUserWithEmailAndPassword, signInWithPopup} from 'firebase/auth'
 import { onAuthStateChanged } from 'firebase/auth';
 import { collection, setDoc, doc, getDoc } from 'firebase/firestore';
 import { db } from '../../../firebase/config';
 import AuthDetails from '../components/AuthDetails';
+import { useRouter } from 'next/navigation';
 
 const myCollection = collection(db, 'users');
 
+
 const SignUp = () => {
+    const router = useRouter();
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
@@ -20,25 +23,53 @@ const SignUp = () => {
                 if (user) {
                   let email:string = user.email!==null ? user.email : "";
                   const data = {
-                    email : user.email
+                    email : user.email,
+                    career: null,
+                    collegeRigor: null,
+                    educationLvl: null,
+                    questionaire: false,
                   }
                   await setDoc(doc(db, 'users', email), data)
                 }
+                router.push('/questionaire')
               });
             console.log(userCredential)
         }).catch((error)=>{
             alert('An account with this email has already been created.')
-        })      
+        })    
     }
+    const googleAuth = async () =>{
+      const provider = await new GoogleAuthProvider()
+      signInWithPopup(auth, provider).then(async (userCredential)=>
+      {
+        let email:string = userCredential.user.email!==null ? userCredential.user.email : "";
+        const docRef = doc(db,'users',email)
+        const docSnap = await getDoc(docRef)
+        if(docSnap.exists() === false){
+          const data = {
+              email : email,
+              career: null,
+              collegeRigor: null,
+              educationLvl: null,
+              questionaire: false,
+            }
+            await setDoc(doc(db, 'users', email), data)
+        }
+        router.push('/questionaire')
+      })
+      .catch((error) => console.log(error));
+      return;
+  }
   return (
-    <div className='sign-in-container self-center'>
-        <form className=" text-zinc-50" onSubmit={onSubmit}>
-            <h1 className="text-5xl text-blue-500 bg-gray-200">Create Account</h1>
-            <input className='text-slate-950' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            <input className='text-slate-950' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-            <button className='bg-green-600' type='submit'>Sign Up</button>
+    <div>
+        <form onSubmit={onSubmit}>
+            <h1>Create Account</h1>
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <button type='submit'>Sign Up</button>
         </form>
-        <div>Already have an account? <a className=' text-blue-500 underline' href='login'>Log In</a></div>
+        <button onClick={googleAuth}>Sign Up With Google</button>
+        <div>Already have an account? <a href='login'>Log In</a></div>
     </div>
   )
 }

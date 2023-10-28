@@ -1,35 +1,62 @@
 'use client'
 import React, {useState} from 'react'
-import Firebase, {auth} from '../../../firebase/config'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import Firebase, {auth, db} from '../../../firebase/config'
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
 import AuthDetails from '../components/AuthDetails'
+import { doc, getDoc, setDoc } from 'firebase/firestore'
+import { useRouter } from 'next/navigation'
+
+
 
 const SignIn = () => {
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
-
+    const router = useRouter();
     const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         signInWithEmailAndPassword(auth, email, password)
         .then((userCredential)=> {
             console.log(userCredential)
+            router.push('/questionaire')
         }).catch((error)=>{
-            console.log(error);
+            alert('Invalid Email or Password');
+        })  
+    }
+    const googleAuth = async () =>{
+        const provider = await new GoogleAuthProvider()
+        signInWithPopup(auth, provider).then(async (userCredential)=>
+        {
+          let email:string = userCredential.user.email!==null ? userCredential.user.email : "";
+          const docRef = doc(db,'users',email)
+          const docSnap = await getDoc(docRef)
+          if(docSnap.exists() === false){
+            const data = {
+                email : email,
+                career: null,
+                collegeRigor: null,
+                educationLvl: null,
+                questionaire: false,
+              }
+              await setDoc(doc(db, 'users', email), data)
+          }
+          router.push('/questionaire')
         })
+        .catch((error) => console.log(error));
+        return;
     }
   return (
-    <div className='sign-in-container self-center'>
-        <form className=" text-zinc-50" onSubmit={onSubmit}>
-            <h1 className="text-5xl text-blue-500 bg-gray-200">Log In</h1>
-            <input className='text-slate-950' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            <input className='text-slate-950' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-            <button className='bg-green-600' type='submit'>Log In Chat</button>
+    <div>
+        <form onSubmit={onSubmit}>
+            <h1>Log In</h1>
+            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+            <button type='submit'>Log In Chat</button>
         </form>
-        <div>Don't have an account? <a className=' text-blue-500 underline' href='signUp'>Sign Up</a></div>
+        <button onClick={googleAuth}>Log In With Google</button>
+        <div>Don't have an account? <a href='signUp'>Sign Up</a></div>
     </div>
   )
 }
-
 export default function Home() {
     return(
         <>
