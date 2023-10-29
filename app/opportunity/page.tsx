@@ -1,6 +1,7 @@
+'use client'
 import { db } from '@/firebase/config';
 import { collection, getDocs } from 'firebase/firestore';
-import AuthDetails from '../(userAuthorization)/components/AuthDetails';
+import { useRouter } from 'next/navigation';
 
 type postDoc = {
     provider: string;
@@ -8,6 +9,8 @@ type postDoc = {
     description: string;
     event: string;
     date: string;
+    author: string;
+    datePosted: string,
 }
 
 async function getAllDocuments(collectionName:string) {
@@ -21,6 +24,8 @@ async function getAllDocuments(collectionName:string) {
         description: doc.data().description,
         event: doc.data().event,
         date: doc.data().date,
+        datePosted: doc.data().datePosted,
+        author: doc.data().author,
       });
     });
   
@@ -29,18 +34,21 @@ async function getAllDocuments(collectionName:string) {
 
 export default async function Home() {
     const posts = getAllDocuments('posts');
+    const router = useRouter();
     return (
         <>
-          <h1>Opportunities</h1>
+          <h1>Opportunities
+            <button onClick={() => {router.push('/opportunity/addPost')}}>Add Post</button>
+          </h1>
           <ul>
             {
                 (await posts).map((post, index) => (
                     <>
                         <li key={index}>
-                            <div>{post.event+" "+post.date}</div>
+                            <div>{post.author+" "+post.datePosted}</div>
+                            <div><a href={post.link}>{post.event}</a></div>
                             <div>{post.description}</div>
-                            <div>{post.provider}</div>
-                            <div>{post.link}</div>
+                            <div>Provided by: {post.provider}</div>
                         </li>
                     </>
                 ))

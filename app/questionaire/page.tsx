@@ -5,7 +5,7 @@ const Quest = () => {
   const router = useRouter();
   const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push('/');
+    router.push('/opportunity');
   }
   return (
     <>
@@ -70,6 +70,7 @@ const Quest = () => {
               <div><input type="checkbox"></input>Chess</div>
               <div><input type="checkbox"></input>Business Or Finance Clubs</div>
               <div><input type="checkbox"></input>Science/ STEM Clubs</div>
+              <div>Other: <input type="text" placeholder='ex. Military'></input></div>
             <button type='submit' >Submit!</button>
         </form>
       </div>
