@@ -69,6 +69,7 @@ const SignUp = () => {
             <button type='submit'>Sign Up</button>
         </form>
         <button onClick={googleAuth}>Sign Up With Google</button>
+        <button>Log In With Apple</button>
         <div>Already have an account? <a href='login'>Log In</a></div>
     </div>
   )

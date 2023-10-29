@@ -53,6 +53,7 @@ const SignIn = () => {
             <button type='submit'>Log In Chat</button>
         </form>
         <button onClick={googleAuth}>Log In With Google</button>
+        <button>Log In With Apple</button>
         <div>Don't have an account? <a href='signUp'>Sign Up</a></div>
     </div>
   )
