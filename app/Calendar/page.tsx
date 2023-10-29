@@ -2,6 +2,7 @@
 //import Casa from '../casa/Casa'
 
 //const firebase = Firebase
+'use client'
 import './month.js'; 
 import './style.css';
 import Head from 'next/head';
@@ -27,7 +28,7 @@ export default function Home() {
                             <span className="year-change" id="p-year">
                                 <pre>&lt;</pre>
                             </span>
-                            <span id= "year">2023 </span>
+                            <span id= "year">2023</span>
                             <span className = "year-change" id = "next-year">
                                 <pre>&gt;</pre>
                             </span>
