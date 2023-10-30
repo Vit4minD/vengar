@@ -5,7 +5,7 @@ const Quest = () => {
   const router = useRouter();
   const onSubmit = (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    router.push('/opportunity');
+    router.push('/Calendar');
   }
   return (
     <>
