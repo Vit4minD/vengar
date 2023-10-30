@@ -1,8 +1,6 @@
-'use client'
 import { db } from '@/firebase/config';
-import { collection, getDocs } from 'firebase/firestore';
-import { useRouter } from 'next/navigation';
-
+import { collection, getDocs, orderBy, query } from 'firebase/firestore';
+import './style.css'
 type postDoc = {
     provider: string;
     link: string;
@@ -14,7 +12,8 @@ type postDoc = {
 }
 
 async function getAllDocuments(collectionName:string) {
-    const querySnapshot = await getDocs(collection(db, collectionName));
+    const myQuery = query(collection(db, collectionName), orderBy('datePosted', 'desc'))
+    const querySnapshot = await getDocs(myQuery);
     const documents: postDoc[] = [];
   
     querySnapshot.forEach((doc) => {
@@ -27,28 +26,27 @@ async function getAllDocuments(collectionName:string) {
         datePosted: doc.data().datePosted,
         author: doc.data().author,
       });
-    });
-  
+    }); 
     return documents;
   }
 
 export default async function Home() {
     const posts = getAllDocuments('posts');
-    const router = useRouter();
     return (
         <>
           <h1>Opportunities
-            <button onClick={() => {router.push('/opportunity/addPost')}}>Add Post</button>
+            <a href="/opportunity/post"><button><span></span>+</button></a>
           </h1>
           <ul>
             {
                 (await posts).map((post, index) => (
                     <>
                         <li key={index}>
-                            <div>{post.author+" "+post.datePosted}</div>
+                            <div><img src = "./favicon.ico" className = "logo"></img>{post.author}{" "+post.datePosted}</div>
                             <div><a href={post.link}>{post.event}</a></div>
                             <div>{post.description}</div>
                             <div>Provided by: {post.provider}</div>
+                            <div>Date: {post.date}</div>
                         </li>
                     </>
                 ))

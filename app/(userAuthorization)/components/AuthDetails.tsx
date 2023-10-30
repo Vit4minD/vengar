@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import { auth } from '@/firebase/config'
 import { User, onAuthStateChanged, signOut } from 'firebase/auth'
 
-
 const AuthDetails = () => {
     const[authUser, setAuthUser] = useState<User | null>(null);
 
@@ -39,5 +38,4 @@ const AuthDetails = () => {
     </div>
   )
 }
-
 export default AuthDetails

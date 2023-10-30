@@ -6,8 +6,6 @@ import AuthDetails from '../components/AuthDetails'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useRouter } from 'next/navigation'
 
-
-
 const SignIn = () => {
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')

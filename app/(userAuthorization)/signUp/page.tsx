@@ -10,8 +10,6 @@ import { useRouter } from 'next/navigation';
 import Head from 'next/head';
 
 const myCollection = collection(db, 'users');
-
-
 const SignUp = () => {
     const router = useRouter();
     const[email,setEmail] = useState('')
@@ -99,7 +97,6 @@ const SignUp = () => {
     </html>
   )
 }
-
 export default function Home() {
   return (
     <>
