@@ -52,21 +52,24 @@ export default async function Home() {
                   <li><a href = "#">Home</a></li>
                 </ul>
               </div>
-              <h1>Opportunities
-                <a href="/opportunity/post"><button><span></span>+</button></a>
-              </h1>
+              <div id='addOp'>
+                <h1>Opportunities
+                  <a href="/opportunity/post" id='addOpButton'><button >+</button></a>
+                </h1>
+              </div>
                   <ul>
                     {
                         (await posts).map((post, index) => (
                           <div className="box" id='posts'>
                                 <li key={index} id='postObj'>
                                     <div><img src = "./favicon.ico" id = "postLogo"></img></div>
-                                    <div id='postUser' >{post.author}{" "+post.datePosted}</div>
+                                    <div id='postUser' ></div>
+                                    <div id='eventDiv'><a id='eventTitle' href={post.link}>{post.event}</a></div>
                                     <div id='photoPost'><img id='imgPost' src ={post.photoUrl}></img></div>
-                                    <div id='eventTitle'><a href={post.link}>{post.event}</a></div>
-                                    <div>{post.description}</div>
+                                    <div id ='descDiv'><p id='desc'>{post.description}</p></div>
                                     <div>Provided by: {post.provider}</div>
-                                    <div>Date: {post.date}</div>
+                                    <div><p>On Date: {post.date}</p></div>
+                                    <div id='postedBy'>{post.author}{" "+post.datePosted}</div>
                                 </li>
                             </div>
                         ))
