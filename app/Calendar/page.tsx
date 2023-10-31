@@ -3,7 +3,7 @@
 
 //const firebase = Firebase
 'use client'
-import React from 'react';
+import React, {useState} from 'react';
 import './style.css';
 import Head from 'next/head';
 import { useEffect } from 'react';
@@ -156,6 +156,11 @@ export default function Home() {
       const makeEvent = document.getElementById("makeEvent");
       const addEvent = document.getElementById("addEvent");
       const exitEvent = document.getElementById("exitEvent")
+
+      const date = document.getElementById("date");
+      const Time = document.getElementById("time");
+      const desc = document.getElementById("description");
+
       makeEvent?.addEventListener("click",() =>{
         if(addEvent!=null){
             addEvent.style.display = "block";
