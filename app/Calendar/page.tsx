@@ -172,8 +172,7 @@ export default function Home() {
                 addEvent.style.display = "none"; // Fade in the popup
             }, 450);
 
-        }
-      })
+      }});
     }, []);
       
   return (
@@ -188,7 +187,7 @@ export default function Home() {
             <link rel ="stylesheet" href = "style.css"></link>
         </head>
         </Head>
-        <body>
+        <body id="exitMakeEvent">
             <div className="banner">
                 <div className="navbar">
                     <img src = "./favicon.ico" className = "logo"></img>
@@ -222,7 +221,7 @@ export default function Home() {
                                 <div>Fri</div>
                                 <div>Sat</div>
                             </div>
-                            <div className="calendar-days">
+                            <div className="calendar-days" id='makeEvent'>
                             </div>
                         </div>
                         <div className="calendar-footer">
@@ -255,4 +254,7 @@ export default function Home() {
         </html> 
     </>
   )
+
+
 }
+
