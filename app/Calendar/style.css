@@ -41,7 +41,10 @@ html, body{
     height: 100%;
 }
 
-
+.addEvent{
+    padding-top: 2rem;
+    padding-bottom: 0rem;
+}
 .calendar{/*error here*/
     height:800px; /*may be diff*/
     width: max-content;
@@ -88,16 +91,13 @@ html, body{
     color: var(--bg-second);
     height: 50px;
 }
-
-
 .calendar-days{
     display: grid;
     grid-template-columns:repeat(7,1fr);
     gap: 2px;
     color: var(--color-txt); /* look over*/
-
-
 }
+
 .calendar-days div{
     width: 37px;
     height: 33px;
@@ -180,8 +180,55 @@ html, body{
     border-radius: 20%;
     color: var(--dark-text);
 }
-
-
+.addEvent{
+    display: none; 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 20px;
+    width: 25rem;
+    height: 28rem;
+    opacity:  0;
+    transition: opacity 0.3s;
+    /* z-index: 1; */
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 15px;
+    border-color: black;
+    border-radius: 25px;
+    border: 2px solid grey;
+    box-shadow:rgb(0, 120, 150);
+}
+.button{
+    background: transparent;
+}
+.exitEvent{
+    text-align: right;
+    color: rgb(120,0,0);
+}
+.time{
+    padding-top: 1rem;
+    padding-bottom: 3rem;
+}
+.date{
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+#exitEvent{
+    font-size: 20px;
+}
+#exitEvent:hover{
+    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+    background-color: var(--days-back);
+    border-radius: 20%;
+    color: var(--dark-text);
+    padding: .25rem;
+    cursor:pointer;
+}
 .months-list{
     position:relative;
     left: 0;
@@ -237,7 +284,7 @@ html, body{
     font-family: Dubai Light, Century Gothic;
     height: max-content;
     width: max-content;
-    top: 140px;
+    top: 60px;
     display: inline;
     position: relative;
     justify-content: center;
