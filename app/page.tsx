@@ -11,7 +11,7 @@ export default function Home() {
         </head>
       </Head>
       <body>
-        <div className="banner">
+        <div className="banner" id="backGROUND">
           <div className="navbar">
             <img src = "./favicon.ico" className = "logo"></img>
             <ul>

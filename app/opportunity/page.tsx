@@ -1,6 +1,7 @@
 import { db } from '@/firebase/config';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
-import './style.css'
+import Head from 'next/head';
+
 type postDoc = {
     provider: string;
     link: string;
@@ -8,7 +9,8 @@ type postDoc = {
     event: string;
     date: string;
     author: string;
-    datePosted: string,
+    datePosted: string;
+    photoUrl: string;
 }
 
 async function getAllDocuments(collectionName:string) {
@@ -25,6 +27,7 @@ async function getAllDocuments(collectionName:string) {
         date: doc.data().date,
         datePosted: doc.data().datePosted,
         author: doc.data().author,
+        photoUrl: doc.data().photoUrl,
       });
     }); 
     return documents;
@@ -33,25 +36,44 @@ async function getAllDocuments(collectionName:string) {
 export default async function Home() {
     const posts = getAllDocuments('posts');
     return (
-        <>
-          <h1>Opportunities
-            <a href="/opportunity/post"><button><span></span>+</button></a>
-          </h1>
-          <ul>
-            {
-                (await posts).map((post, index) => (
-                    <>
-                        <li key={index}>
-                            <div><img src = "./favicon.ico" className = "logo"></img>{post.author}{" "+post.datePosted}</div>
-                            <div><a href={post.link}>{post.event}</a></div>
-                            <div>{post.description}</div>
-                            <div>Provided by: {post.provider}</div>
-                            <div>Date: {post.date}</div>
-                        </li>
-                    </>
-                ))
-            }
-          </ul>
-        </>
+        <html>
+          <Head>
+            <head>
+              <link rel='stylesheet' href='style.css' ></link>
+            </head>
+          </Head>
+          <body>
+            <div className="banner" id='scroll'>
+              <div className="navbar">
+                <img src = "./favicon.ico" className = "logo"></img>
+                <ul>
+                  <li><a href = "login">Home</a></li>
+                  <li><a href = "login">Home</a></li>
+                  <li><a href = "#">Home</a></li>
+                </ul>
+              </div>
+              <h1>Opportunities
+                <a href="/opportunity/post"><button><span></span>+</button></a>
+              </h1>
+                  <ul>
+                    {
+                        (await posts).map((post, index) => (
+                          <div className="box" id='posts'>
+                                <li key={index} id='postObj'>
+                                    <div><img src = "./favicon.ico" id = "postLogo"></img></div>
+                                    <div id='postUser' >{post.author}{" "+post.datePosted}</div>
+                                    <div id='photoPost'><img id='imgPost' src ={post.photoUrl}></img></div>
+                                    <div id='eventTitle'><a href={post.link}>{post.event}</a></div>
+                                    <div>{post.description}</div>
+                                    <div>Provided by: {post.provider}</div>
+                                    <div>Date: {post.date}</div>
+                                </li>
+                            </div>
+                        ))
+                    }
+                  </ul>
+            </div>
+          </body>
+        </html>
       );
  }

@@ -16,11 +16,11 @@
 .navbar{
   width: 100%;
   margin: auto;
-  padding: 35px 0;
+  padding: 22px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .2);
 }
 
 .logo{
@@ -184,4 +184,48 @@ button:hover{
   color: black;
   margin: 0px 10px;
   border-color: rgba(70, 70, 70, 1);
+}
+#backGROUND{
+  background-image: linear-gradient(rgba(0, 20, 30, 0.6), rgba(0, 20, 30, 0.8)),
+                  url("https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    /* background-image: url('https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&q=80&w=1974&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'); */
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+    background-position: center;
+}
+
+#scroll{
+  height:auto;
+}
+
+#imgPost{
+  text-align: center;
+  width: 100%;
+  height: 50vh;
+}
+#photoPost{
+  text-align: center;
+}
+#posts{
+  height:max-content;
+  font-weight:300;
+  font-size:20px;
+  list-style: none;
+  padding: 3.4rem;
+}
+#postLogo{
+  width:3rem;
+  padding:0;
+}
+#postUser{
+  font-weight: 600;
+  font-size: 3rem;
+  text-align: center;
+  padding-top:0;
+  padding-bottom:2rem;
+}
+#eventTitle{
+  font-size: 5rem;
+  text-decoration: none;
 }

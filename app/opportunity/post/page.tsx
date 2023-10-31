@@ -11,6 +11,7 @@ export default function Home() {
     const[provider,setProvider] = useState('')
     const[date,setDate] = useState('')
     const[description,setDescription] = useState('')
+    const[photoUrl,setPhotoUrl] = useState('')
     const currentDate = new Date();
 
     const onSubmit = async (e:React.FormEvent<HTMLFormElement>) => {
@@ -26,8 +27,10 @@ export default function Home() {
             datePosted: (currentDate.getMonth() + 1).toString().padStart(2, '0')+"/"
             +currentDate.getDate().toString().padStart(2, '0')+"/"
             +currentDate.getFullYear().toString().slice(-2)+" "+
-            (currentDate.getHours()===0? 12 : currentDate.getHours()-12)+":"+currentDate.getMinutes()+
+            (currentDate.getHours()===0? 12 : currentDate.getHours()-12)+":"+
+            (currentDate.getMinutes()<10 ? "0"+currentDate.getMinutes() : currentDate.getMinutes())+
             (currentDate.getHours()>12 ? "pm" : "am"),
+            photoUrl: photoUrl,
         }
         await setDoc(doc(db, 'posts', title), data)
         router.push('/opportunity')
@@ -43,6 +46,7 @@ export default function Home() {
                 <input value={description} onChange={(e) => setDescription(e.target.value)}></input>
                 <p>Date Of Event:<input type="date" value={date} onChange={(e) => setDate(e.target.value)}></input></p>
                 <p>Link:<input value={link} onChange={(e) => setLink(e.target.value)}></input></p>
+                <p>Photo Url:<input value={photoUrl} onChange={(e) => setPhotoUrl(e.target.value)}></input></p>
                 <button type="submit"><span></span>Share Now!</button>
             </form>
         </>
