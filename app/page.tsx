@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import './spany.css'
 
 export default function Home() {
   return (

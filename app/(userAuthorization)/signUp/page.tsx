@@ -8,8 +8,12 @@ import { db } from '../../../firebase/config';
 import AuthDetails from '../components/AuthDetails';
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
+import '../../spany.css';
+
 
 const myCollection = collection(db, 'users');
+
+
 const SignUp = () => {
     const router = useRouter();
     const[email,setEmail] = useState('')
@@ -63,40 +67,36 @@ const SignUp = () => {
     <html>
       <Head>
         <head>
-        <link rel ="stylesheet" href = "style.css"></link>
+          <link rel ="stylesheet" href = "style.css"></link>
         </head>
       </Head>
       <body>
-        <div className = "banner">
+        <div className = "banner" id = 'li'>
           <div className="navbar">
             <img src = "./favicon.ico" className = "logo"></img>
             <ul>
-              <li><a href = "login">Home</a></li>
-              <li><a href = "login">Home</a></li>
-              <li><a href = "#">Home</a></li>
+              <li><a href = "/">Home</a></li>
+              <li><a href = "calendar">Calendar</a></li>
+              <li><a href = "opportunity">Opportunities</a></li>
             </ul>
           </div>
-          <div className = "content">
-            <h1>PLAN YOUR FUTURE</h1>
-            <p>Sign up to unlock your future through Vengar for free!</p>
-            <a href = "login"><button type="button"><span></span>Log In</button></a>
-            
+          <div className="box">
+            <form onSubmit={onSubmit}>
+                <h1>Create Account</h1>
+                <input id = 'one' className = "in1" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                <input id = 'two' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <button type='submit'><span></span>Sign Up</button>
+            </form>
+            {/* <button onClick={googleAuth}>Sign Up With Google</button> */}
+            {/* <button>Log In With Apple</button> */}
+            <h2>Already have an account? <a href='login'>Log In</a></h2>
           </div>
-              <form onSubmit={onSubmit}>
-                  <h1>Create Account</h1>
-                  <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                  <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                  <button type='submit'>Sign Up</button>
-              </form>
-              <button onClick={googleAuth}>Sign Up With Google</button>
-              <button>Log In With Apple</button>
-              <div>Already have an account? <a href='login'>Log In</a></div>
-            
         </div>
       </body>
     </html>
   )
 }
+
 export default function Home() {
   return (
     <>

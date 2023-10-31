@@ -5,6 +5,9 @@ import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 
 import AuthDetails from '../components/AuthDetails'
 import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useRouter } from 'next/navigation'
+import Head from 'next/head';
+import '../../spany.css';
+
 
 const SignIn = () => {
     const[email,setEmail] = useState('')
@@ -43,17 +46,40 @@ const SignIn = () => {
         return;
     }
   return (
-    <div>
-        <form onSubmit={onSubmit}>
-            <h1>Log In</h1>
-            <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
-            <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-            <button type='submit'>Log In Chat</button>
-        </form>
-        <button onClick={googleAuth}>Log In With Google</button>
+    <html>
+        <Head>
+            <head>
+                <link rel = 'stylesheet' href = 'style.css'></link>
+            </head>
+        </Head>
+        <body>
+            <div className="banner">
+                <div className="navbar">
+                    <img src = "./favicon.ico" className = "logo"></img>
+                    <ul>
+                        <li><a href = "/">Home</a></li>
+                        <li><a href = "calendar">Calendar</a></li>
+                        <li><a href = "opportunity">Opportunities</a></li>
+                    </ul>
+                </div>
+                <div className="box">
+                    <form onSubmit={onSubmit}>
+                        <h1>Log In</h1>
+                        <input id = 'one' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                        <input id = 'two' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                        <button type='submit'>Log In Chat</button>
+                    </form>
+                    <button id = 'b1' onClick={googleAuth}>Log In With Google</button>
+                </div>
+            </div>
+        </body>
+    {/* <div>
+        
+        
         <button>Log In With Apple</button>
         <div>Don't have an account? <a href='signUp'>Sign Up</a></div>
-    </div>
+    </div> */}
+    </html>
   )
 }
 export default function Home() {
