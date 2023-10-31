@@ -201,6 +201,7 @@ export default function Home() {
                     <div className="calendar">
                         <div className="calendar-header">
                             <span className="month-choose" id="month-choose"> Oct </span>
+                            <span className = "makeEvent" id = "makeEvent">+</span>
                             <div className="year-chooser" id = "year-chooser">
                                 <span className="year-change" id="p-year">
                                     <pre>&lt;</pre>
@@ -221,7 +222,7 @@ export default function Home() {
                                 <div>Fri</div>
                                 <div>Sat</div>
                             </div>
-                            <div className="calendar-days" id='makeEvent'>
+                            <div className="calendar-days">
                             </div>
                         </div>
                         <div className="calendar-footer">

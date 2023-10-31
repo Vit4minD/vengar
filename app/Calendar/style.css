@@ -139,6 +139,23 @@ html, body{
     color: var(--color-txt);
 }
 
+.makeEvent{
+    cursor: pointer;
+    font-size: 3rem;
+    width:3.4rem;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    margin: 0px .5rem;
+    cursor:pointer;
+}
+
+.makeEvent:hover{
+    background-color: var(--light-btn);
+    position:center;
+    transition: all .2s ease-in-out;
+    transform:scale(1.2)
+}
 
 .year-chooser{
     display: flex;
@@ -156,7 +173,7 @@ html, body{
 
 .year-change:hover{
     background-color: var(--light-btn);
-    transform: scale(1.12);
+    transform: scale(1.2);
     position: center;
     transition: all .2s ease-in-out;
 }
