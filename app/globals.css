@@ -304,3 +304,11 @@ button:hover{
   font-size:2rem;
   padding:.5rem;
 }
+#confirmEvent{
+  background-color: #007896;
+  padding:.6rem;
+  width:14rem;
+}
+#confirmEvent:hover{
+  background-color: #0b5669;
+}

@@ -9,8 +9,10 @@ import Head from 'next/head';
 import { useEffect } from 'react';
 export default function Home() {
     useEffect(() => {
-    const events = [
-       
+    let events = [
+       {date: '12-2-2023' , title: 'Test'},
+       {date: '10-25-2023' , title: 'PSAT'},
+       {date: '10-27-2023' , title: 'Study for Test'},
     ];
     const monthNames = [
         'January', 'February', 'March', 'April', 'May', 'June','July', 'August', 'September', 'October', 'November', 'December',
@@ -66,9 +68,13 @@ export default function Home() {
             if(i >= FDay.getDay()){
                 const dayNumber = i - FDay.getDay() + 1;
                 Day.innerHTML = dayNumber;
-                const eventForDay = events.find(event => event.date === `${year}-${month + 1}-${dayNumber}`);
+                if (dayNumber % 2 === 0) {
+                    
+                }
+                const eventForDay = events.find(event => event.date === `${month + 1}-${dayNumber}-${year}`);
             if (eventForDay) {
                 // Add the event to the day's content
+                Day.classList.add('special-day');
                 const eventElement = document.createElement('div');
                 eventElement.className = 'event';
                 eventElement.textContent = eventForDay.title;
@@ -156,6 +162,7 @@ export default function Home() {
       const makeEvent = document.getElementById("makeEvent");
       const addEvent = document.getElementById("addEvent");
       const exitEvent = document.getElementById("exitEvent")
+      const confirmEvent = document.getElementById("confirmEvent")
 
       const date = document.getElementById("date");
       const Time = document.getElementById("time");
@@ -170,6 +177,15 @@ export default function Home() {
         }
       });
       exitEvent?.addEventListener("click",()=>{
+        if(addEvent!=null){
+            addEvent.style.transition = "opacity .3s"
+            addEvent.style.opacity = '0';
+            setTimeout(function() {
+                addEvent.style.display = "none"; // Fade in the popup
+            }, 450);
+
+      }});
+      confirmEvent?.addEventListener("click",()=>{
         if(addEvent!=null){
             addEvent.style.transition = "opacity .3s"
             addEvent.style.opacity = '0';
@@ -243,24 +259,23 @@ export default function Home() {
                         <div className='exitEvent'><a  id='exitEvent'>X</a></div>
                             Add Event
                             <div>
-                                <form>
+                                <form onSubmit={(e)=>{e.preventDefault()}}>
+
                                     <p className='date'>Date:<input type="date"></input></p>
                                     <p className='time'>Time:<input type="time"></input></p>
                                     <p className='description' >Desc:<input placeholder='Description' type="text"></input></p>
+                                    <p><button id='confirmEvent'>Add</button></p>                                
                                 </form>
                             </div>
                         </div>
                         <div className="months-list"></div>
-                        {/* <div className="event"></div> */}
+                        <div className="event"></div> 
                     </div>
                 </div>
             </div>
         </body>
-        
         </html> 
     </>
   )
-
-
 }
 

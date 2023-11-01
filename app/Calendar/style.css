@@ -5,7 +5,7 @@
     --light-second: rgba(0,0,255,1);
     --light-hover: rgba(0,0,255,1);
     --light-text: rgb(71, 71, 75);
-    --light-btn: rgba(0,0,255,1);
+    --light-btn: rgba(0,60,90,1);
     --blue: rgb(0, 120, 150);
     --white: rgba(255,255,255, 1);
     --light-gray: rgba(140,140,140,1);
@@ -100,6 +100,7 @@ html, body{
     padding: 0px 0px 0px 3rem;
     font-size: 2rem;
     color: var(--color-txt); /* look over*/
+    
 
 
 }
@@ -113,10 +114,18 @@ html, body{
     position:relative;
     cursor: pointer;
     animation: to-top 1s forwards;
+    
+}
+
+.special-day {
+    background-color: rgb(219, 130, 236); /* Change this to the desired background color */
+    color: black; /* Change this to the desired text color */
+    border-radius: 20%;
 }
 
 .calendar-days div span{
     position: absolute;
+    
 }
 .calendar-days div:hover{
     transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
@@ -320,13 +329,13 @@ html, body{
     transform: translate(-50%, -50%);
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 15px;
     width: 25rem;
-    height: 28rem;
+    height: 30rem;
     opacity:  0;
     transition: opacity 0.3s;
     /* z-index: 1; */
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     text-align: center;
     padding-top: 15px;
@@ -334,6 +343,7 @@ html, body{
     border-radius: 25px;
     border: 2px solid grey;
     box-shadow:rgb(0, 120, 150);
+    color:rgb(0, 120, 150);
 }
 .button{
     background: transparent;
@@ -343,12 +353,20 @@ html, body{
     color: rgb(120,0,0);
 }
 .time{
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
+    color:black;
+    font-size: 2rem;
 }
 .date{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    color:black;
+    font-size: 2rem;
+}
+.description{
+    color:black;
+    font-size: 2rem;
+    padding-bottom: 0;
 }
 #exitEvent{
     font-size: 20px;
