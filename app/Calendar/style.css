@@ -320,13 +320,13 @@ html, body{
     transform: translate(-50%, -50%);
     background-color: #fff;
     border: 1px solid #ccc;
-    padding: 20px;
+    padding: 15px;
     width: 25rem;
-    height: 28rem;
+    height: 30rem;
     opacity:  0;
     transition: opacity 0.3s;
     /* z-index: 1; */
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: 600;
     text-align: center;
     padding-top: 15px;
@@ -334,6 +334,7 @@ html, body{
     border-radius: 25px;
     border: 2px solid grey;
     box-shadow:rgb(0, 120, 150);
+    color:rgb(0, 120, 150);
 }
 .button{
     background: transparent;
@@ -343,12 +344,20 @@ html, body{
     color: rgb(120,0,0);
 }
 .time{
-    padding-top: 1rem;
-    padding-bottom: 3rem;
+    padding-bottom: 1rem;
+    color:black;
+    font-size: 2rem;
 }
 .date{
-    padding-top: 3rem;
-    padding-bottom: 3rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    color:black;
+    font-size: 2rem;
+}
+.description{
+    color:black;
+    font-size: 2rem;
+    padding-bottom: 0;
 }
 #exitEvent{
     font-size: 20px;

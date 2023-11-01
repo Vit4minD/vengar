@@ -1,4 +1,5 @@
 'use client'
+import Image from 'next/image'
 import React, {useState} from 'react'
 import Firebase, {auth, db} from '../../../firebase/config'
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup } from 'firebase/auth'
@@ -7,7 +8,7 @@ import { doc, getDoc, setDoc } from 'firebase/firestore'
 import { useRouter } from 'next/navigation'
 import Head from 'next/head';
 import '../../spany.css';
-
+import googleLogoImg from '../../../public/googleLogo.jpg'
 
 const SignIn = () => {
     const[email,setEmail] = useState('')
@@ -69,7 +70,8 @@ const SignIn = () => {
                         <input id = 'two' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         <button type='submit'>Log In Chat</button>
                     </form>
-                    <button id = 'b1' onClick={googleAuth}>Log In With Google<img src='googleLogo.jpg'></img></button>
+                    <button id = 'b1' onClick={googleAuth}>Log In With Google<Image id='google' src={googleLogoImg} width={25} height={25} alt="" /></button>
+                    
                 </div>
             </div>
         </body>

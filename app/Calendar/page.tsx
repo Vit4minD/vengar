@@ -156,7 +156,7 @@ export default function Home() {
       const makeEvent = document.getElementById("makeEvent");
       const addEvent = document.getElementById("addEvent");
       const exitEvent = document.getElementById("exitEvent")
-
+      const confirmEvent = document.getElementById("confirmEvent")
       const date = document.getElementById("date");
       const Time = document.getElementById("time");
       const desc = document.getElementById("description");
@@ -170,6 +170,15 @@ export default function Home() {
         }
       });
       exitEvent?.addEventListener("click",()=>{
+        if(addEvent!=null){
+            addEvent.style.transition = "opacity .3s"
+            addEvent.style.opacity = '0';
+            setTimeout(function() {
+                addEvent.style.display = "none"; // Fade in the popup
+            }, 450);
+
+      }});
+      confirmEvent?.addEventListener("click",()=>{
         if(addEvent!=null){
             addEvent.style.transition = "opacity .3s"
             addEvent.style.opacity = '0';
@@ -243,10 +252,11 @@ export default function Home() {
                         <div className='exitEvent'><a  id='exitEvent'>X</a></div>
                             Add Event
                             <div>
-                                <form>
+                                <form onSubmit={(e)=>{e.preventDefault()}}>
                                     <p className='date'>Date:<input type="date"></input></p>
                                     <p className='time'>Time:<input type="time"></input></p>
                                     <p className='description' >Desc:<input placeholder='Description' type="text"></input></p>
+                                    <p><button id='confirmEvent'>Add</button></p>
                                 </form>
                             </div>
                         </div>
