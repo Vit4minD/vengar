@@ -69,7 +69,7 @@ const SignIn = () => {
                         <input id = 'two' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
                         <button type='submit'>Log In Chat</button>
                     </form>
-                    <button id = 'b1' onClick={googleAuth}>Log In With Google</button>
+                    <button id = 'b1' onClick={googleAuth}>Log In With Google<img src='googleLogo.jpg'></img></button>
                 </div>
             </div>
         </body>

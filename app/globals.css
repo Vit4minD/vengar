@@ -252,3 +252,55 @@ button:hover{
   font-size: 2.4rem;
   color:white;
 }
+#shareOp{
+  background-color: white;
+  text-align: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width:40vw;
+  height:60vh;
+  transform: translate(-50%, -50%);
+  border-radius: 50px;
+  margin-top: 6rem;
+  box-shadow: 10px 10px 5px black;
+  padding:4rem;
+  color:#007896;
+}
+#topShare{
+  font-size: 5rem;
+  padding-bottom:2rem;
+}
+#shareForm{
+  text-align: left;
+  font-weight: 400;
+  font-size: 3rem;
+  color: black;
+  margin-top: 2rem;
+}
+#shareFormImg{
+  text-align: center;
+  border-radius: 50px;
+  width:50%;
+  height:30vh;
+  margin-right: auto;
+  float:right;
+}
+#shareOpSubmit{
+  text-align: center;
+  margin-top: 0rem;
+}
+#shareButton{
+  background-color: #007896;
+}
+#shareButton:hover{
+  background-color: #0b5669;
+}
+#shareDesc{
+  position: relative;
+  width:32rem;
+  height:15rem;
+  vertical-align: top;
+  font-size:2rem;
+  padding:.5rem;
+}
