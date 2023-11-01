@@ -304,9 +304,12 @@ button:hover{
   font-size:2rem;
   padding:.5rem;
 }
+<<<<<<< HEAD
 #google{
   bottom:0
 }
+=======
+>>>>>>> bc8d2437b470e96877c829559526824bd6c05bed
 #confirmEvent{
   background-color: #007896;
   padding:.6rem;
