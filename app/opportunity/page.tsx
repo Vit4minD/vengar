@@ -1,6 +1,9 @@
 import { db } from '@/firebase/config';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import Head from 'next/head';
+import '../spany.css';
+import React from 'react';
+import './style1.css'
 
 type postDoc = {
     provider: string;
@@ -43,21 +46,22 @@ export default async function Home() {
             </head>
           </Head>
           <body>
-            <div className="banner" id='scroll'>
+            <div className="banner" id='scroll25'>
               <div className="navbar">
                 <img src = "./favicon.ico" className = "logo"></img>
                 <ul>
-                  <li><a href = "login">Home</a></li>
-                  <li><a href = "login">Home</a></li>
-                  <li><a href = "#">Home</a></li>
+                  <li><a href = "/">Home</a></li>
+                  <li><a href = "/calendar">Calendar</a></li>
+                  <li><a href = "/opportunity">Opportunities</a></li>
                 </ul>
               </div>
               <div id='addOp'>
                 <h1>Opportunities
-                  <a href="/opportunity/post" id='addOpButton'><button >+</button></a>
-                </h1>
+                  <a href="/opportunity/post"><button id = 'Gar'><span></span>+</button></a>
+                  </h1>
               </div>
-                  <ul>
+              <div id='centerPost'>
+                  <ul >
                     {
                         (await posts).map((post, index) => (
                           <div className="box" id='posts'>
@@ -75,6 +79,7 @@ export default async function Home() {
                         ))
                     }
                   </ul>
+                  </div>
             </div>
           </body>
         </html>

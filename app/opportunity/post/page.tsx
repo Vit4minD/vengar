@@ -4,7 +4,8 @@ import { doc, setDoc } from 'firebase/firestore';
 import { useRouter } from 'next/navigation'
 import { useState } from 'react';
 import Head from 'next/head';
-
+import './style.css'
+import '../../spany.css'
 export default function Home() {
     const router = useRouter();
     const[title,setTitle] = useState('')
@@ -46,13 +47,13 @@ export default function Home() {
                 </head>
             </Head>
             <body>
-            <div className="banner">
+            <div className="banner" id='scroll'>
               <div className="navbar">
                 <img src = "../../favicon.ico" className = "logo"></img>
                 <ul>
-                  <li><a href = "login">Home</a></li>
-                  <li><a href = "login">Home</a></li>
-                  <li><a href = "#">Home</a></li>
+                <li><a href = "/">Home</a></li>
+                  <li><a href = "/calendar">Calendar</a></li>
+                  <li><a href = "/opportunity">Opportunities</a></li>
                 </ul>
               </div>
               <div id='shareOp'> 

@@ -6,7 +6,7 @@
 
 .banner{
   width:100%;
-  height:100vh;
+  height:(100vh);
   background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, .75));
   background-size:cover;
   background-position: center;
@@ -23,6 +23,9 @@
   background-color: rgba(0, 0, 0, .2);
 }
 
+#n1{
+  background-color: rgba(0, 0, 0, .3);
+}
 .logo{
   width: 100px;
   margin: 0% 0 0 5%;
@@ -97,14 +100,18 @@ button{
   overflow:hidden;
 }
 
-
+#shareButton:hover{
+  color:white;
+}
 
 button:hover span{
   width:100%;
+  
 }
 
 button:hover{
   border:none;
+  color: #fff;
 }
 
 .in1{
@@ -113,7 +120,7 @@ button:hover{
 
 .box{
   margin-top: 3%;
-  width: 50%;
+  width: 50vw;
   height: 50vh;
   background-color: white ;
   transform: translateX(50%);
@@ -125,8 +132,10 @@ button:hover{
   font-size: 40px;
 }
 
+
+
 .box form input{
-  width: 85%;
+  width: 80%;
   height: 5%;
   left: 7.5%;
   display: flex;
@@ -144,9 +153,9 @@ button:hover{
   width: 200px;
   position: absolute;
   vertical-align: middle;
-  right: 2.5%;
-  top: 65%;
-  font-size: 17.5px;
+  right: 7.5%;
+  top: 75%;
+  font-size: 20px;
   font-style: normal;
   border-radius: 25px;
   color: black;
@@ -171,7 +180,7 @@ button:hover{
 
 #b1{
   font-family: sans-serif;
-  left:5%;
+  left:7%;
   top: 55%;
   padding: 10px;
   width: fit-content;
@@ -180,8 +189,9 @@ button:hover{
   vertical-align: middle;
   font-size: 17.5px;
   font-style: normal;
+  background-color: rgba(0, 0, 0, .85);
   border-radius: 10px;
-  color: black;
+  color: rgba(230, 230, 230, 1);
   margin: 0px 10px;
   border-color: rgba(70, 70, 70, 1);
 }
@@ -196,7 +206,7 @@ button:hover{
 }
 
 #scroll{
-  height:auto;
+  height:auto+2rem;
 }
 
 #imgPost{
@@ -217,6 +227,10 @@ button:hover{
   list-style: none;
   padding: 3.4rem;
   padding-bottom: 1rem;
+  transform: translate(501px);
+}
+#centerPost{
+  text-align: left;
 }
 #postLogo{
   width:3rem;
@@ -248,8 +262,9 @@ button:hover{
   padding-top: 2rem;
 }
 #addOp{
-  margin-left:65rem;
+  text-align: center;
   font-size: 2.4rem;
+  margin-top: 2rem;
   color:white;
 }
 #shareOp{
@@ -263,18 +278,17 @@ button:hover{
   transform: translate(-50%, -50%);
   border-radius: 50px;
   margin-top: 6rem;
-  box-shadow: 10px 10px 5px black;
   padding:4rem;
   color:#007896;
 }
 #topShare{
-  font-size: 5rem;
+  font-size: 50px;
   padding-bottom:2rem;
 }
 #shareForm{
   text-align: left;
   font-weight: 400;
-  font-size: 3rem;
+  font-size: 2.25rem;
   color: black;
   margin-top: 2rem;
 }
@@ -291,11 +305,10 @@ button:hover{
   margin-top: 0rem;
 }
 #shareButton{
-  background-color: #007896;
+  background-color: transparent;
+  color:#007896;
 }
-#shareButton:hover{
-  background-color: #0b5669;
-}
+
 #shareDesc{
   position: relative;
   width:32rem;
@@ -304,12 +317,11 @@ button:hover{
   font-size:2rem;
   padding:.5rem;
 }
-<<<<<<< HEAD
+
 #google{
-  bottom:0
+  vertical-align: middle;
+  padding-left: 10px;
 }
-=======
->>>>>>> bc8d2437b470e96877c829559526824bd6c05bed
 #confirmEvent{
   background-color: #007896;
   padding:.6rem;
@@ -317,4 +329,149 @@ button:hover{
 }
 #confirmEvent:hover{
   background-color: #0b5669;
+}
+#centerr{
+  text-align: center;
+}
+#scr{
+  height:auto+2rem;
+}
+
+#H1{
+  padding-top: 2%;
+  right: -50%;
+  color: #fff;
+  text-align: center;
+  font-size: 50px;
+}
+
+h1{
+  padding-top: 2rem;
+}
+
+#Gar{
+  margin: rem 0 1rem;
+  background-color: #007896;
+  width:5.9rem;
+  float: right;
+  right:150px;
+  top:-70px;
+}
+
+#H2{
+  padding-top: 1%;
+  right: -50%;
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+}
+
+
+#scroll{
+height:auto;
+}
+
+#P1{
+  padding-top: 3%;
+  right: -50%;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+#P2{
+  margin: 15px 15px 50px 6px;
+  text-align: center;
+}
+
+input[type="radio"]{
+  /* background-color: rgba(0, 120, 150, 0.1); */
+  position: relative;
+  margin: 30;
+  font: inherit;
+  color: currentColor;
+  width: 20px;
+  height: 20px;
+  border: 1.5px solid currentColor;
+  border-radius: 50%;
+  
+}
+
+select{
+  transform: translateX(15vw);
+  text-align: center;
+  margin: 15px 0 20px;
+}
+
+ul li{
+  display: inline;
+  margin: 30px 15px 15px 10px;
+}
+
+#gar{
+  transform: translateX(15vw);
+  list-style: none;
+}
+
+#gar1{
+  transform: translateX(14.5vw);
+  padding-bottom: 2rem;
+}
+
+#gargar{
+  margin: 0px 15px 15px 22.5px;
+}
+#gar3{
+  transform: translateX(0vw);
+  list-style: none;
+  display: grid;
+  text-align: center;
+}
+#garGar{
+  height:20vh;
+}
+
+.divvy{
+  margin: 10px;
+}
+#yes{
+  top:50%;
+  left:25%;
+}
+#no{
+  top:50%;
+  right:25%;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  color: currentColor;
+  width: 1.5em;
+  height: 1.5em;
+  border: 0.15em solid currentColor;
+  border-radius: 0.15em;
+  transform: translateY(-0.075em);
+  margin: 10px 10px 0 5px;
+  vertical-align: middle;
+}
+#garGarGar{
+  height:auto+2rem;
+  text-align: left;
+  transform: translateX(15vw);
+  padding-bottom:3rem;
+}
+
+#garGarGarGar{
+  margin-top: 15px;
+}
+#garGarGarGarGar{
+  text-align: center;
+}
+
+#bg{
+  background-color: #007896;
 }

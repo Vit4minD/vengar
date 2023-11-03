@@ -9,7 +9,7 @@ import { useRouter } from 'next/navigation'
 import Head from 'next/head';
 import '../../spany.css';
 import googleLogoImg from '../../../public/googleLogo.jpg'
-
+import './style.css'
 const SignIn = () => {
     const[email,setEmail] = useState('')
     const[password,setPassword] = useState('')
@@ -20,6 +20,7 @@ const SignIn = () => {
         .then((userCredential)=> {
             console.log(userCredential)
             router.push('/questionaire')
+            router.replace('/questionaire');
         }).catch((error)=>{
             alert('Invalid Email or Password');
         })  
@@ -54,7 +55,7 @@ const SignIn = () => {
             </head>
         </Head>
         <body>
-            <div className="banner">
+            <div className="banner" id='scroll'>
                 <div className="navbar">
                     <img src = "./favicon.ico" className = "logo"></img>
                     <ul>
@@ -68,7 +69,7 @@ const SignIn = () => {
                         <h1>Log In</h1>
                         <input id = 'one' type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)}></input>
                         <input id = 'two' type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                        <button type='submit'>Log In Chat</button>
+                        <button type='submit'><span></span>Log In</button>
                     </form>
                     <button id = 'b1' onClick={googleAuth}>Log In With Google<Image id='google' src={googleLogoImg} width={25} height={25} alt="" /></button>
                     

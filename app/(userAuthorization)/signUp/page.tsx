@@ -9,7 +9,7 @@ import AuthDetails from '../components/AuthDetails';
 import { useRouter } from 'next/navigation';
 import Head from 'next/head';
 import '../../spany.css';
-
+import './style.css'
 
 const myCollection = collection(db, 'users');
 
@@ -71,7 +71,7 @@ const SignUp = () => {
         </head>
       </Head>
       <body>
-        <div className = "banner" id = 'li'>
+        <div className = "banner" id='scroll'>
           <div className="navbar">
             <img src = "./favicon.ico" className = "logo"></img>
             <ul>
